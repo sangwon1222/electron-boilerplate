@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  button {
+    padding: 0.5rem;
+    transition: all 0.25s;
+  }
+  button:hover {
+    color: #fff;
+    background-color: rgb(56 189 248); /*  bg-sky-400  */
+  }
+}

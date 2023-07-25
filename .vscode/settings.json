@@ -1,11 +1,27 @@
 {
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "editor.minimap.enabled": false,
+"window.zoomLevel": -1,
+"editor.formatOnSave": true,
+"explorer.confirmDragAndDrop": false,
+"javascript.updateImportsOnFileMove.enabled": "always",
+"volar.inlayHints.eventArgumentInInlineHandlers": false,
+"css.customData": [".vscode/css_custom_data.json"],
+
+"editor.codeActionsOnSave": {
+// For ESLint
+"source.fixAll.eslint": true,
+},
+// Enable per-language
+"[typescript]": {
+// "editor.formatOnSave": true,
+"editor.defaultFormatter": "esbenp.prettier-vscode"
+},
+"[json]": {
+"editor.defaultFormatter": "esbenp.prettier-vscode",
+// "editor.formatOnSave": true,
+},
+"workbench.settings.useSplitJSON": true 
 }

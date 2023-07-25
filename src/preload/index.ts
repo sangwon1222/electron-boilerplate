@@ -10,7 +10,7 @@ const api = {
   onGetFileList: (cb) =>
     ipcRenderer.on('on-test', (_e: Electron.IpcRendererEvent, hello) => {
       cb(hello)
-    })
+    }),
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to

@@ -14,10 +14,10 @@ function createWindow(): void {
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
-      sandbox: false
+      sandbox: false,
       // webSecurity: false,
       // allowRunningInsecureContent: true
-    }
+    },
   })
 
   ipcMain.handle('getFileList', (event: Electron.IpcMainInvokeEvent, _res: any) => {

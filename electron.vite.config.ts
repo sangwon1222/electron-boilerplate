@@ -1,25 +1,29 @@
 import { resolve } from 'path'
-import { defineConfig, externalizeDepsPlugin, loadEnv } from 'electron-vite'
+import { defineConfig, externalizeDepsPlugin } from 'electron-vite'
 import vue from '@vitejs/plugin-vue'
 
-export default ({ mode }) => {
-  // Load app-level env vars to node-level env vars.
-  process.env = { ...process.env, ...loadEnv(mode, process.cwd()) }
+export default defineConfig({
+  main: {
+    plugins: [externalizeDepsPlugin()],
+  },
+  preload: {
+    plugins: [externalizeDepsPlugin()],
+  },
 
-  return defineConfig({
-    main: {
-      plugins: [externalizeDepsPlugin()],
-    },
-    preload: {
-      plugins: [externalizeDepsPlugin()],
-    },
-    renderer: {
-      resolve: {
-        alias: {
-          '@renderer': resolve('src/renderer/src'),
-        },
+  renderer: {
+    resolve: {
+      alias: {
+        '@renderer': resolve('src/renderer/src'),
+        '@pages': resolve('src/renderer/src/pages'),
+        '@atoms': resolve('src/renderer/src/components/atoms'),
+        '@molecules/*': resolve('src/renderer/src/components/molecules'),
+        '@organisms/*': resolve('src/renderer/src/components/organisms'),
+        '@template': resolve('src/renderer/src/components/template'),
+        '@store': resolve('src/renderer/src/store'),
+        '@util': resolve('src/renderer/src/util'),
+        '@type': resolve('src/renderer/src/type'),
       },
-      plugins: [vue()],
     },
-  })
-}
+    plugins: [vue()],
+  },
+})
